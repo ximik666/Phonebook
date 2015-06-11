@@ -19,8 +19,11 @@ def signedup():
         password = request.form['password']
         phone = request.form.get('phone')
         insert_account_holder(email,username,phone,password)
-        return render_template("homepage.html",username=username)
+        return render_template("homepage.html")
 
+@app.route("/signup", methods=["GET","POST"])
+def signup():
+    return render_template("signup.html")
 
 # controllers
 @app.route('/favicon.ico')
