@@ -11,8 +11,8 @@ app.config.update(
     DEBUG = True,
 )
 
-@app.route("/signedup", methods=["GET","POST"])
-def signedup():
+@app.route("/added", methods=["GET","POST"])
+def added():
 
         email = request.form['email']
         username = request.form['username']
@@ -21,9 +21,9 @@ def signedup():
         insert_account_holder(email,username,phone,password)
         return render_template("homepage.html")
 
-@app.route("/signup", methods=["GET","POST"])
-def signup():
-    return render_template("signup.html")
+@app.route("/add", methods=["GET","POST"])
+def add():
+    return render_template("add.html")
 
 # controllers
 @app.route('/favicon.ico')

@@ -18,15 +18,21 @@
     <div class="navbar navbar-static-top navbar-default">
       <div class="container">
         <button class="navbar-toggle">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
+          <span class="icon-bar">чс</span>
+          <span class="icon-bar">сч</span>
+          <span class="icon-bar">чс</span>
         </button>
         <a class="navbar-brand" href="/">PhoneBook - справочник телефонов</a>
         <div class="nav-collapse">
           {% block navbar_right %}
           <ul class="nav navbar-nav pull-right">
               <li><a href="#">Добавить</a></li>
+             <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Поиск">
+        </div>
+        <button type="submit" class="btn btn-default">Поиск</button>
+      </form>
 
           </ul>
           {% endblock %}

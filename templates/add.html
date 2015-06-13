@@ -6,7 +6,7 @@
     {% if error %} 
     <p class=error><strong>Error:</strong> {{ error }}
     {% endif %}  
-    <form method="post" action="{{ url_for('signedup') }}">
+    <form method="post" action="{{ url_for('added') }}">
       <p><label>Email:</label> <input type="text" name="email"></p>  
       <p><label>Username:</label> <input type="text" name="username"></p>
       <p><label>password:</label> <input type="password" name="password"></p>
@@ -17,7 +17,7 @@
         
       <p><button type="submit">Send</button></p>
     </form>
-    <form style="width:40%" method="post" action="{{ url_for('signedup')}}">
+    <form style="width:40%" method="post" action="{{ url_for('added')}}">
     <div class="form-group" >
         <label form="inputEmail">Фамилия И.О.</label>
         <input type="text" name="email" class="form-control" id="inputEmail" placeholder="Фамилия Имя Отчество">
