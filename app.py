@@ -1,6 +1,6 @@
 __author__ = 'work'
 #http://www.syncano.com/intro-flask-pt-2-creating-writing-databases/
-
+from models import *
 import os, sqlite3
 from flask import Flask, render_template, send_from_directory, g, request
 from models import *
@@ -10,6 +10,8 @@ app = Flask(__name__)
 app.config.update(
     DEBUG = True,
 )
+
+
 
 @app.route("/added", methods=["GET","POST"])
 def added():
@@ -29,6 +31,13 @@ def add():
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'), 'ico/favicon.ico')
+
+
+@app.route("/test")
+def test():
+    contacts = select_by_all()
+   # print contacts.title
+    return render_template("test.html",contacts=contacts)
 
 @app.errorhandler(404)
 def page_not_found(e):
