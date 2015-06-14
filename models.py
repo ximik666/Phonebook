@@ -94,7 +94,7 @@ def insert_account_holder(email, username, phone, password):
 
 def select_by_all():
     db = get_db()
-    cur = db.execute("select id from fio")
+    cur = db.execute("select id,fio from fio")
     entries = cur.fetchall()
     return entries
 
@@ -109,3 +109,4 @@ def select_one_number(id):
     for idd in id:
         strin = "select number,type_number_id from number where fio_id="+str(idd[0])
     return strin
+

@@ -10,7 +10,7 @@ import codecs
 #sys.stdout = codecs.getwriter('utf8')(sys.stdout)
 #sys.stderr = codecs.getwriter('utf8')(sys.stderr)
 #http://www.syncano.com/intro-flask-pt-2-creating-writing-databases/
-from models import *
+# from models import *
 import os, sqlite3
 from flask import Flask, render_template, send_from_directory, g, request
 from models import *
@@ -46,13 +46,16 @@ def favicon():
 @app.route("/test")
 def test():
     contacts = select_by_all()
+   # print contacts
+    print contacts[1][1]
     for contact in contacts:
-        print contact[0]
+        #print contact[0]
         one_c = select_one(contact[0])
-        for one in one_c:
-            print one[0]
-   # print contacts.title
-    return render_template("test.html",contacts=contacts)
+        print one_c[0][0]
+        #for one in one_c:
+           # print one[0]
+            #print contact[0]
+    return render_template("test.html",contacts=contacts,one_c=one_c)
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -62,6 +65,9 @@ def page_not_found(e):
 def index():
     return render_template('index.html')
 
+def printt():
+    print '12'
+app.jinja_env.globals.update(printt=printt)
 
 # launch
 if __name__ == "__main__":

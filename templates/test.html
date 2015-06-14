@@ -17,16 +17,42 @@
   {% for contact in contacts %}
       <tr>
       <td>{{ contact.id }}</td>
-      <td>{{ contact.fio }}</td>
+      <td>{{ printt() }}</td>
       <td>{{contact.number}}</td>
         <td></td>
         <td></td>
         <td></td>
       </tr>
 
-      {% else %}
-    <em>Unbelievable.  No entries here so far</em>
   {% endfor %}
 </tbody>
   </table>
+<br />
+ <table  class="table table-striped">
+    <thead>
+      <tr>
+        <th>11 {{ printt() }}</th>
+        <th>ФИО</th>
+        <th>Мобильныaaй</th>
+         <th>Рабочий</th>
+         <th>Домашний</th>
+         <th>IP</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    {% for one in one_c %}
+      <tr>
+      <td></td>
+      <td>{{ one.fio }}</td>
+      <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+  {% endfor %}
+</tbody>
+  </table>
+
 {% endblock %}
