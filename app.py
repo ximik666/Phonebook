@@ -1,4 +1,14 @@
 __author__ = 'work'
+# -*- coding: utf-8 -*-
+# ==============
+#      Main script file
+# ==============
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+import codecs
+#sys.stdout = codecs.getwriter('utf8')(sys.stdout)
+#sys.stderr = codecs.getwriter('utf8')(sys.stderr)
 #http://www.syncano.com/intro-flask-pt-2-creating-writing-databases/
 from models import *
 import os, sqlite3
@@ -36,6 +46,11 @@ def favicon():
 @app.route("/test")
 def test():
     contacts = select_by_all()
+    for contact in contacts:
+        print contact[0]
+        one_c = select_one(contact[0])
+        for one in one_c:
+            print one[0]
    # print contacts.title
     return render_template("test.html",contacts=contacts)
 

@@ -7,21 +7,26 @@
       <tr>
         <th>№</th>
         <th>ФИО</th>
-        <th>Email</th>
+        <th>Мобильный</th>
+         <th>Рабочий</th>
+         <th>Домашний</th>
+         <th>IP</th>
       </tr>
     </thead>
     <tbody>
   {% for contact in contacts %}
-    <tr>
-    <td>{{ contact.id }}</td>
-    <td>
-      {{ contact.fio }}</td>
-      <td>{{contact.date_added}}</td>
-  </tr>
-    </tbody>
-    </table>
+      <tr>
+      <td>{{ contact.id }}</td>
+      <td>{{ contact.fio }}</td>
+      <td>{{contact.number}}</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
       {% else %}
     <em>Unbelievable.  No entries here so far</em>
   {% endfor %}
-
+</tbody>
+  </table>
 {% endblock %}

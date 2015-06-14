@@ -1,4 +1,14 @@
 __author__ = 'work'
+# -*- coding: utf-8 -*-
+# ==============
+#      Main script file
+# ==============
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+import codecs
+#sys.stdout = codecs.getwriter('utf8')(sys.stdout)
+#sys.stderr = codecs.getwriter('utf8')(sys.stderr)
 import sqlite3 as sql
 from app import *
 
@@ -84,7 +94,18 @@ def insert_account_holder(email, username, phone, password):
 
 def select_by_all():
     db = get_db()
-    cur = db.execute("SELECT * FROM fio")
+    cur = db.execute("select id from fio")
     entries = cur.fetchall()
-
     return entries
+
+def select_one(id):
+    db = get_db()
+    #print id
+    strin = "select fio from fio where id="+str(id)
+    stri = db.execute(strin)
+    return stri.fetchall()
+def select_one_number(id):
+    db = get_db()
+    for idd in id:
+        strin = "select number,type_number_id from number where fio_id="+str(idd[0])
+    return strin
