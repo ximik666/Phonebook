@@ -91,6 +91,27 @@ def insert_account_holder(email, username, phone, password):
     con.commit()
     con.close()
 
+def select_number(id,phone_id):
+    strin = "select number from number where fio_id="+str(id)+' and type_number_id='+str(phone_id)
+    db = get_db()
+    cur = db.execute(strin)
+    entries = cur.fetchall()
+    print entries.__len__()
+    if entries.__len__()>0:
+        return entries
+    else:
+        return '-'
+
+def select_skype(id):
+    strin = "select skype_address from skype_address where fio_id="+str(id)
+    db = get_db()
+    cur = db.execute(strin)
+    entries = cur.fetchall()
+    print entries.__len__()
+    if entries.__len__()>0:
+        return entries
+    else:
+        return '-'
 
 def select_by_all():
     db = get_db()

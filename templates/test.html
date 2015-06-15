@@ -11,48 +11,22 @@
          <th>Рабочий</th>
          <th>Домашний</th>
          <th>IP</th>
+          <th>Skype</th>
       </tr>
     </thead>
     <tbody>
-  {% for contact in contacts %}
+  {% for tes in printt() %}
       <tr>
-      <td>{{ contact.id }}</td>
-      <td>{{ printt() }}</td>
-      <td>{{contact.number}}</td>
-        <td></td>
-        <td></td>
-        <td></td>
+      <td>{{ tes[0] }}</td>
+      <td>{{ tes[1] }}</td>
+      <td>{{ select_number_j(tes[0],1)[0][0] }}</td>
+          <td>{{ select_number_j(tes[0],3)[0][0] }}</td>
+          <td>{{ select_number_j(tes[0],2)[0][0] }}</td>
+          <td>{{ select_number_j(tes[0],4)[0][0] }}</td>
+          <td>{{ select_skype_j(tes[0])[0][0] }}</td>
       </tr>
 
   {% endfor %}
 </tbody>
   </table>
-<br />
- <table  class="table table-striped">
-    <thead>
-      <tr>
-        <th>11 {{ printt() }}</th>
-        <th>ФИО</th>
-        <th>Мобильныaaй</th>
-         <th>Рабочий</th>
-         <th>Домашний</th>
-         <th>IP</th>
-      </tr>
-    </thead>
-    <tbody>
-
-    {% for one in one_c %}
-      <tr>
-      <td></td>
-      <td>{{ one.fio }}</td>
-      <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-
-  {% endfor %}
-</tbody>
-  </table>
-
 {% endblock %}

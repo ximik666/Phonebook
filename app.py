@@ -42,8 +42,11 @@ def add():
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'), 'ico/favicon.ico')
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
-@app.route("/test")
+@app.route("/")
 def test():
     contacts = select_by_all()
    # print contacts
@@ -51,23 +54,27 @@ def test():
     for contact in contacts:
         #print contact[0]
         one_c = select_one(contact[0])
-        print one_c[0][0]
+        #print one_c[0][0]
         #for one in one_c:
            # print one[0]
             #print contact[0]
     return render_template("test.html",contacts=contacts,one_c=one_c)
 
-@app.errorhandler(404)
-def page_not_found(e):
-    return render_template('404.html'), 404
-
-@app.route("/")
-def index():
-    return render_template('index.html')
-
 def printt():
-    print '12'
+    tess = select_by_all()
+    return tess
+
+def select_number_j(id,phone_id):
+    ss = select_number(id,phone_id)
+    return ss
+
+def select_skype_j(id):
+    ss = select_skype(id)
+    return ss
+
 app.jinja_env.globals.update(printt=printt)
+app.jinja_env.globals.update(select_number_j=select_number_j)
+app.jinja_env.globals.update(select_skype_j=select_skype_j)
 
 # launch
 if __name__ == "__main__":
